@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia dos Pais ♡ </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #e9dfd0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+
+        /* -------------------------
+           TÍTULO
+        ------------------------- */
+
+        .titulo {
+            margin-bottom: 45px;
+            color: #5c4033;
+        }
+
+        .titulo h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .titulo p {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* ENVELOPE */
+
+        .envelope {
+            position: relative;
+            width: 400px;
+            height: 230px;
+            margin: auto;
+            overflow: visible;
+        }
+
+        /* Corpo do envelope */
+
+        .corpo {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 210px;
+            background: #fffaf2;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+            z-index: 1;
+        }
+        /*CARTA*/
+        .carta {
+            position: absolute;
+            width: 370px;
+            height: 300px;
+            left: 15px;
+            bottom: 15px;
+            background: #fffdf8;
+            padding: 35px 30px;
+            border-radius: 5px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(0);
+            opacity: 0;
+            transition:
+                transform 1s ease,
+                opacity 0.5s ease;
+
+            z-index: 2;
+        }
+
+        .carta h2 {
+            color: #5c4033;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .carta p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+
+        /*FRENTE DO ENVELOPE*/
+
+        .frente {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 145px;
+            background: #fffaf2;
+            clip-path: polygon(0 0,
+                    50% 55%,
+                    100% 0,
+                    100% 100%,
+                    0 100%);
+
+            z-index: 3;
+        }
+
+
+        /*ABA SUPERIOR*/
+
+        .aba {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 185px;
+            background: #8b5e3c;
+            clip-path: polygon(0 0,
+                    100% 0,
+                    50% 100%);
+            transform-origin: top;
+            transition: transform 0.8s ease;
+            z-index: 4;
+        }
+
+        /* ENVELOPE ABERTO*/
+
+        .envelope.aberto .aba {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope.aberto .carta {
+            transform: translateY(-90px);
+            opacity: 1;
+            z-index: 5;
+        }
+
+
+        /* BOTÃO*/
+
+        button {
+            margin-top: 40px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #5c4033;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #3e2a20;
+            transform: scale(1.05);
+        }
+
+        /* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .titulo {
+        margin-bottom: 35px;
+    }
+
+    .titulo h1 {
+        font-size: 27px;
+    }
+
+    .titulo p {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    /* Envelope */
+
+    .envelope {
+        width: 90vw;
+        max-width: 400px;
+        height: 52vw;
+        max-height: 230px;
+    }
+
+    /* Carta */
+
+    .carta {
+        width: calc(90vw - 30px);
+        max-width: 370px;
+        height: auto;
+        min-height: 250px;
+
+        left: 15px;
+        padding: 25px 20px;
+    }
+
+    .carta h2 {
+        font-size: 21px;
+    }
+
+    .carta p {
+        font-size: 14px;
+    }
+
+    /* Aba */
+
+    .aba {
+        width: 100%;
+        height: 145px;
+    }
+
+    /* Carta aberta */
+
+    .envelope.aberto .carta {
+        transform: translateY(-70px);
+    }
+
+    /* Botão */
+
+    button {
+        margin-top: 30px;
+        font-size: 15px;
+        padding: 13px 25px;
+    }
+}
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+        <!-- TÍTULO -->
+        <div class="titulo">
+            <h1>
+                FELIZ DIA DOS PAIS! ♡
+            </h1>
+            <p>
+                PARA O MELHOR PAI
+            </p>
+        </div>
+
+        <!-- ENVELOPE -->
+        <div class="envelope" id="envelope">
+            <!-- CARTA -->
+            <div class="carta">
+                <h2>
+                    Para você, pai ♡
+                </h2>
+                <p>
+                    Obrigado por estar sempre ao meu lado,
+                    por todos os conselhos, pelas risadas
+                    e por todos os momentos que compartilhamos.
+                </p>
+                <br>
+                <p>
+                    Você é muito especial para mim.
+                    Tenho muita sorte de ter você como pai!
+                </p>
+                <br>
+                <p>
+                    Te amo! ♡
+                </p>
+            </div>
+
+            <!-- CORPO -->
+            <div class="corpo"></div>
+
+            <!-- FRENTE -->
+            <div class="frente"></div>
+
+            <!-- ABA -->
+            <div class="aba"></div>
+        </div>
+
+        <!-- BOTÃO -->
+        <button id="botao" onclick="abrirCartao()">
+            Abrir cartão ✉️
+        </button>
+    </div>
+
+
+    <script>
+        function abrirCartao() {
+            const envelope = document.getElementById("envelope");
+            const botao = document.getElementById("botao");
+
+            envelope.classList.toggle("aberto");
+
+            if (envelope.classList.contains("aberto")) {
+                botao.innerHTML = "Fechar cartão ✉️";
+
+            } else {
+                botao.innerHTML = "Abrir cartão ✉️";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
